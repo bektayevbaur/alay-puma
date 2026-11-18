@@ -1,143 +1,276 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0D4FA8;--bg2:#1763C6;--deep:#0A3B80;--line:#4A86D4;--or:#FFA12B;--ye:#FFD23F;--gold:#C9A35B;--lt:#F4F1EA;--mut:#D2E3F7;}
-#ap,#ap *{box-sizing:border-box}
-#ap{margin:0;background:var(--bg);color:var(--lt);font-family:Inter,system-ui,sans-serif;line-height:1.5}
-h1,h2,h3{font-family:Oswald,sans-serif;text-transform:uppercase;line-height:1.05;margin:0}
-a{color:var(--ye)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.lock{display:flex;align-items:center;gap:16px}
-.lock img.a{height:52px}.lock img.p{height:30px}
-.lock span{color:var(--or);font-size:26px;font-weight:600}
-.lang{display:flex;border:2px solid var(--or);border-radius:40px;overflow:hidden}
-.lang button{background:none;border:0;color:var(--lt);font:600 15px Inter,sans-serif;padding:8px 16px;cursor:pointer}
-.lang button.on{background:var(--or);color:#111}
-.hero{padding:48px 0 72px}
-.kicker{font:500 18px Oswald,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
-.hero h1{font-size:clamp(54px,10vw,120px)}
-.or{color:var(--or)}
-.lead{font-size:clamp(18px,2.2vw,22px);max-width:640px;margin:20px 0 28px}
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px}
-.chip{border:2px solid var(--or);border-radius:40px;padding:10px 20px;font:500 18px Oswald,sans-serif}
-.chip.gold{background:var(--gold);border-color:var(--gold);color:#111}
-.btn{display:inline-block;background:var(--or);color:#111;font:700 18px Oswald,sans-serif;text-transform:uppercase;letter-spacing:1px;padding:16px 32px;border-radius:12px;text-decoration:none}
-section{padding:64px 0;border-top:1px solid var(--line)}
-section h2{font-size:clamp(34px,5vw,56px);margin-bottom:28px}
-.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.card{background:var(--bg2);border-radius:20px;padding:28px}
-.card .num{font:700 56px Oswald,sans-serif;color:var(--or);line-height:1}
-.card h3{font-size:24px;margin:10px 0 6px}
-.card p{margin:0;color:var(--mut);font-size:16px}
-.tiers{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.tier{border-radius:20px;padding:32px}
-.tier.base{border:3px solid var(--or)}
-.tier.prem{background:var(--gold);color:#121212}
-.tier .pct{font:700 88px Oswald,sans-serif;line-height:1}
-.tier.base .pct{color:var(--or)}
-.tier p{margin:8px 0 0}
-.tier.prem p{color:#2a1d05}
-.note{color:var(--mut);font-size:15px;margin-top:16px}
-.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.step{background:var(--bg2);border-radius:20px;padding:24px}
-.step b{display:inline-flex;width:44px;height:44px;border-radius:10px;background:var(--or);color:#111;font:700 24px Oswald,sans-serif;align-items:center;justify-content:center;margin-bottom:12px}
-.step h3{font-size:20px;margin-bottom:6px}
-.step p{margin:0;color:var(--mut);font-size:15px}
-.stores{display:flex;flex-wrap:wrap;gap:10px}
-.stores span{background:var(--deep);border-radius:10px;padding:10px 16px}
-.form{background:#fff;border-radius:20px;overflow:hidden}
-.form iframe{width:100%;min-height:1400px;border:0;display:block}
-footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+#ap{--bg:#0D4FA8;--bg2:#1763C6;--deep:#0A3B80;--line:#4A86D4;--or:#FFA12B;--ye:#FFD23F;--gold:#C9A35B;--lt:#F4F1EA;--mut:#D2E3F7;
+ background:var(--bg);color:var(--lt);font-family:Inter,Arial,sans-serif;font-size:16px;line-height:1.5;text-align:left;width:100%;overflow:hidden;-webkit-text-size-adjust:100%}
+#ap,#ap *{box-sizing:border-box;letter-spacing:normal}
+#ap a{color:var(--ye);text-decoration:none}
+#ap .ap-wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+#ap .ap-head{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px}
+#ap .ap-lock{display:flex;align-items:center;gap:12px}
+#ap .ap-a svg{display:block;height:44px;width:auto}
+#ap .ap-p svg{display:block;height:26px;width:auto}
+#ap .ap-x{color:var(--or);font-size:22px;font-weight:600}
+#ap .ap-lang{display:flex;border:2px solid var(--or);border-radius:40px;overflow:hidden;flex-shrink:0}
+#ap .ap-lang button{background:none;border:0;color:var(--lt);font:600 14px Inter,Arial,sans-serif;padding:7px 14px;cursor:pointer;margin:0}
+#ap .ap-lang button.on{background:var(--or);color:#111}
+#ap .ap-hero{padding:36px 0 56px}
+#ap .ap-kicker{font:500 15px Oswald,Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+#ap .ap-h1{font-family:Oswald,Arial,sans-serif;font-weight:700;text-transform:uppercase;line-height:1.02;font-size:52px}
+#ap .ap-h2{font-family:Oswald,Arial,sans-serif;font-weight:700;text-transform:uppercase;line-height:1.08;font-size:32px;margin-bottom:22px}
+#ap .or{color:var(--or)}
+#ap .ap-lead{font-size:18px;max-width:600px;margin:16px 0 22px}
+#ap .ap-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+#ap .ap-chip{border:2px solid var(--or);border-radius:40px;padding:7px 16px;font:500 16px Oswald,Arial,sans-serif}
+#ap .ap-btn{display:inline-block;background:var(--or);color:#111;font:700 17px Oswald,Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;padding:14px 28px;border-radius:12px;border:0;cursor:pointer}
+#ap .ap-btn:disabled{opacity:.6;cursor:wait}
+#ap .ap-sec{padding:48px 0;border-top:1px solid var(--line)}
+#ap .ap-grid,#ap .ap-steps{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+#ap .ap-card,#ap .ap-step{background:var(--bg2);border-radius:16px;padding:20px}
+#ap .ap-card .num{font:700 40px Oswald,Arial,sans-serif;color:var(--or);line-height:1}
+#ap .t{font:600 18px Oswald,Arial,sans-serif;text-transform:uppercase;margin:8px 0 4px}
+#ap .s{color:var(--mut);font-size:14px}
+#ap .ap-step b{display:inline-flex;width:36px;height:36px;border-radius:9px;background:var(--or);color:#111;font:700 20px Oswald,Arial,sans-serif;align-items:center;justify-content:center}
+#ap .ap-tiers{display:grid;gap:14px;grid-template-columns:1fr}
+#ap .ap-tier{border-radius:16px;padding:24px}
+#ap .ap-tier.base{border:3px solid var(--or)}
+#ap .ap-tier.prem{background:var(--gold);color:#121212}
+#ap .ap-tier.prem .s{color:#2a1d05}
+#ap .ap-tier .pct{font:700 60px Oswald,Arial,sans-serif;line-height:1;margin-bottom:6px}
+#ap .ap-tier.base .pct{color:var(--or)}
+#ap .ap-tier .s{font-size:16px}
+#ap .ap-note{color:var(--mut);font-size:14px;margin-top:14px}
+#ap .ap-stores{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+#ap .ap-stores span{background:var(--deep);border-radius:10px;padding:8px 14px;font-size:14px}
+#ap .ap-f{display:grid;gap:14px;grid-template-columns:1fr;background:var(--deep);border-radius:20px;padding:22px}
+#ap .ap-f label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--mut);margin:0}
+#ap .ap-f input,#ap .ap-f select{width:100%;height:48px;border-radius:10px;border:2px solid transparent;background:#fff;color:#111;font:500 16px Inter,Arial,sans-serif;padding:0 12px;margin:0;-webkit-appearance:none;appearance:none}
+#ap .ap-f select{background-image:linear-gradient(45deg,transparent 50%,#555 50%),linear-gradient(135deg,#555 50%,transparent 50%);background-position:calc(100% - 18px) 21px,calc(100% - 13px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+#ap .ap-f input[type=file]{height:auto;padding:10px;background:#fff}
+#ap .ap-f input:focus,#ap .ap-f select:focus{outline:none;border-color:var(--or)}
+#ap .ap-f .bad{border-color:#FF5A5A}
+#ap .ap-phone{display:flex;gap:8px}
+#ap .ap-phone select{width:112px;flex-shrink:0}
+#ap .ap-check{flex-direction:row!important;align-items:flex-start;gap:10px!important;font-weight:500!important}
+#ap .ap-check input{width:22px!important;height:22px!important;flex-shrink:0;-webkit-appearance:checkbox!important;appearance:checkbox!important}
+#ap .ap-msg{font-size:16px;font-weight:600;min-height:1em}
+#ap .ap-msg.ok{color:#9CF2B5}
+#ap .ap-msg.err{color:#FFB4B4}
+#ap .ap-foot{padding:28px 0 40px;font-size:14px;border-top:1px solid var(--line)}
 #ap [data-l="ru"]{display:none}
 #ap.ru [data-l="kk"]{display:none}
-#ap.ru [data-l="ru"]{display:revert}
+#ap.ru span[data-l="ru"],#ap.ru a[data-l="ru"]{display:inline}
+#ap.ru div[data-l="ru"]{display:block}
+#ap.ru a.ap-btn[data-l="ru"],#ap.ru button span[data-l="ru"]{display:inline-block}
+#ap label>span[data-l]{display:none}
+#ap:not(.ru) label>span[data-l="kk"],#ap.ru label>span[data-l="ru"]{display:inline}
+@media (min-width:760px){
+ #ap .ap-h1{font-size:96px}
+ #ap .ap-h2{font-size:46px}
+ #ap .ap-lead{font-size:21px}
+ #ap .ap-hero{padding:56px 0 80px}
+ #ap .ap-sec{padding:64px 0}
+ #ap .ap-grid,#ap .ap-steps{grid-template-columns:repeat(4,1fr)}
+ #ap .ap-tiers{grid-template-columns:1fr 1fr}
+ #ap .ap-tier .pct{font-size:80px}
+ #ap .ap-f{grid-template-columns:1fr 1fr;padding:32px;gap:18px}
+ #ap .ap-f .full{grid-column:1/-1}
+ #ap .ap-a svg{height:56px}#ap .ap-p svg{height:32px}
+}
+#ap [hidden]{display:none!important}
 </style>
 <div id="ap">
-<div class="wrap">
-<header>
- <div class="lock"><img class="a" src="https://bektayevbaur.github.io/alay-puma/assets/alay.png" alt="Alay.pro"><span>×</span><img class="p" src="https://bektayevbaur.github.io/alay-puma/assets/puma.png" alt="Puma"></div>
- <div class="lang"><button id="b-kk" class="on" onclick="setLang('kk')">ҚАЗ</button><button id="b-ru" onclick="setLang('ru')">РУС</button></div>
+<div class="ap-wrap">
+<header class="ap-head">
+ <div class="ap-lock"><span class="ap-a"><svg role="img" aria-label="Alay.pro" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 703.007 704.719">
+  <g transform="translate(2803 -371)">
+    <g transform="translate(-120.38 271.037)">
+      <path d="M336.565,0,279.2,40.222H249.37L307.569,0Z" transform="translate(-2356.006 640.893)" fill="#ffffff" fill-rule="evenodd"/>
+      <path d="M345.977,109.055l27.975-57.016c4.639-9.557,11.227-18.882,21.039-23.66,6.727-3.271,13.036-3.619,20.32-3.619h42.1c7.307,0,13.616.325,20.366,3.6,9.835,4.778,16.237,14.126,20.877,23.637L529.5,113.741l9,17.374H512.989l-10.531-21.039H370.217l-10.531,21.039H180.727l-10.508-21.039H37.815L27.307,131.115H1.49l10.624-19.206L41.6,52.039c4.639-9.557,11.227-18.882,21.062-23.66,6.7-3.271,13.013-3.619,20.3-3.619h42.1c7.307,0,13.616.325,20.366,3.6,9.858,4.778,16.353,14.126,20.993,23.637l29.529,59.15V24.76H218.4v84.063H337.835ZM608.094,85.627a15.889,15.889,0,0,1-7.33,2.992v42.5H578.379V88.689a20.344,20.344,0,0,1-7.469-2.784h0L481.466,24.76h40.57l2.32,2.807,5.08,3.317c12.364,8.142,24.658,16.446,37.114,24.4,3.5,2.32,16.1,10.485,20.158,11.6h7.144a41.753,41.753,0,0,0,6.1-2.76c4.407-2.2,8.722-4.639,12.99-6.959q17.815-10.195,35.142-21.317,6.4-4.175,12.712-8.211l2.32-2.807H704.5ZM48.787,87.575H159.155L146.489,61.99c-2.876-5.753-6.959-13.106-13.918-14.428a40.13,40.13,0,0,0-7.469-.418H82.955a40.362,40.362,0,0,0-7.469.418c-6.959,1.322-10.995,8.675-13.918,14.428Zm332.378,0h110.3L478.705,61.9c-2.876-5.753-6.959-13.106-13.918-14.428a40.129,40.129,0,0,0-7.469-.418H415.357a40.244,40.244,0,0,0-7.469.418c-6.959,1.322-11,8.675-13.918,14.428Zm0,0" transform="translate(-2684.11 673.567)" fill="#ffffff" fill-rule="evenodd"/>
+    </g>
+    <path d="M376,318h-.177L341.66,258.811,376,318l0,0Zm-179.294-.918h0L102.252,153.826,191.5,0l94.357,162.631-89.151,154.45Z" transform="translate(-2649 417.037)" fill="#fea128"/>
+    <path d="M92.785,0,185.57,160.369H0Z" transform="translate(-2544.617 737.5)" fill="#fea128"/>
+    <path d="M92.785,0,185.57,160.369H0Z" transform="translate(-2503.011 657.805) rotate(60)" fill="#fea128"/>
+    <path d="M92.785,0,185.57,160.369H0Z" transform="translate(-2493.438 818.513) rotate(-60)" fill="#fecd2f"/>
+    <path d="M15.078,0,30.155,26.06H0Z" transform="translate(-2407.76 371)" fill="#fea128"/>
+    <g transform="translate(-2253.625 804.597) rotate(180)" fill="none">
+      <path d="M30.675,0,61.349,53.018H0Z" stroke="none"/>
+      <path d="M 30.67464447021484 5.990497589111328 L 5.201648712158203 50.01789474487305 L 56.14764022827148 50.01789474487305 L 30.67464447021484 5.990497589111328 M 30.67464447021484 -3.814697265625e-06 L 61.34928894042969 53.01789474487305 L 0 53.01789474487305 L 30.67464447021484 -3.814697265625e-06 Z" stroke="none" fill="#0b59a7"/>
+    </g>
+    <path d="M30.675,0,61.349,53.018H0Z" transform="translate(-2481.987 737.843)" fill="#fecd2f"/>
+    <path d="M30.675,0,61.349,53.018H0Z" transform="translate(-2544.617 844.364)" fill="#ff8d2b"/>
+    <path d="M30.675,0,61.349,53.018H0Z" transform="translate(-2390.483 897.564) rotate(180)" fill="#fecd2f"/>
+    <path d="M57.778,0l57.778,99.863H0Z" transform="translate(-2474.603 417.392)" fill="#fecd28"/>
+    <g transform="translate(-2359.048 636.923) rotate(180)" fill="none">
+      <path d="M57.778,0l57.778,99.863H0Z" stroke="none"/>
+      <path d="M 57.77775955200195 5.990516662597656 L 5.201652526855469 96.86279296875 L 110.3538665771484 96.86279296875 L 57.77775955200195 5.990516662597656 M 57.77775955200195 0 L 115.5555267333984 99.86279296875 L -7.62939453125e-06 99.86279296875 L 57.77775955200195 0 Z" stroke="none" fill="#e58c22"/>
+    </g>
+    <g transform="translate(-2408.041 607.756)" fill="none">
+      <path d="M61.954,0l61.954,107.143H0Z" stroke="none"/>
+      <path d="M 61.95410537719727 13.98386383056641 L 12.1336669921875 100.1429061889648 L 111.774528503418 100.1429061889648 L 61.95410537719727 13.98386383056641 M 61.9541015625 -7.62939453125e-06 L 123.9081954956055 107.1429061889648 L -1.52587890625e-05 107.1429061889648 L 61.9541015625 -7.62939453125e-06 Z" stroke="none" fill="#0b59a7"/>
+    </g>
+    <path d="M93.285,0,186.57,161.369H0Z" transform="translate(-2641.845 574.066)" fill="#fea128"/>
+    <g transform="translate(-2642.041 637.756)" fill="none">
+      <path d="M35.954,0,71.908,62.143H0Z" stroke="none"/>
+      <path d="M 35.95410537719727 5.990512847900391 L 5.201652526855469 59.14289474487305 L 66.70655822753906 59.14289474487305 L 35.95410537719727 5.990512847900391 M 35.95410537719727 3.814697265625e-06 L 71.90821075439453 62.14289474487305 L 0 62.14289474487305 L 35.95410537719727 3.814697265625e-06 Z" stroke="none" fill="#fecd2f"/>
+    </g>
+  </g>
+</svg>
+</span><span class="ap-x">×</span><span class="ap-p"><svg role="img" aria-label="Puma" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 396" version="1.1">
+	<path d="M 780.252 1.972 C 757.255 12.411, 740.935 31.639, 726.968 64.753 C 714.489 94.337, 707.254 105.364, 693.542 115.694 C 683.579 123.200, 676.789 125.517, 665 125.431 C 640.453 125.253, 613.425 111.223, 575.500 78.972 C 528.144 38.701, 497.455 20.552, 468.121 15.472 C 463.380 14.651, 459.050 13.350, 458.500 12.580 C 457.950 11.811, 456.274 9.115, 454.775 6.591 C 451.368 0.853, 449.181 0.721, 445 6 C 441.081 10.948, 439.346 11.007, 435.418 6.329 C 431.566 1.741, 430.182 2.190, 426.083 9.355 C 422.932 14.862, 419.577 18.196, 413 22.355 C 410.814 23.738, 409.389 25.494, 409.203 27.034 C 408.647 31.662, 406.846 34.789, 402.922 37.942 C 397.984 41.911, 397.571 46.011, 401.750 49.577 C 403.262 50.868, 407.583 54.642, 411.351 57.962 C 418.778 64.508, 420.338 64.951, 428.629 62.863 C 433.845 61.550, 439.058 62.685, 443.365 66.072 C 445.491 67.745, 446 68.986, 446 72.501 C 446 78.696, 444.004 80.421, 438.089 79.339 C 429.732 77.811, 413.997 78.334, 408 80.340 C 397.681 83.791, 393 89.130, 393 97.447 C 393 105.434, 402.868 113.505, 410.340 111.630 C 412.350 111.125, 413.229 109.833, 414.680 105.248 C 417.142 97.471, 418.375 97.450, 435.204 104.905 C 463.972 117.649, 480.723 118.348, 492.992 107.317 C 495.633 104.943, 498.293 103, 498.904 103 C 499.515 103, 505.524 108.201, 512.257 114.558 C 539.304 140.092, 556.548 147.346, 597.479 150.407 C 615.659 151.766, 616.448 151.917, 623.435 155.370 C 637.437 162.291, 642.514 168.532, 651.911 190.377 C 663.771 217.947, 680.015 239.461, 701.488 256.038 L 711.747 263.957 712.229 278.228 C 712.739 293.345, 714.247 299.357, 719.212 306.073 C 722.277 310.218, 730.765 314.218, 735.646 313.817 L 739.500 313.500 740.082 303 C 740.402 297.225, 741.257 290.839, 741.982 288.808 C 743.254 285.245, 743.158 284.880, 739.231 278.308 C 734.585 270.534, 733.014 265.573, 733.006 258.650 C 733 253.389, 732.624 252.898, 721.339 243.367 C 712.465 235.872, 710.701 230.741, 709.890 210.070 C 709.088 189.615, 707.174 176.687, 703.032 163.759 C 700.256 155.092, 695.609 146.113, 693.098 144.560 C 690.760 143.116, 692.262 140.357, 697.216 137 C 700.056 135.075, 705.205 130.677, 708.658 127.226 C 715.117 120.772, 717.032 117.410, 728.721 92 C 743.197 60.532, 750.830 52.028, 775.764 39.589 C 788.052 33.458, 794.084 28.716, 797.091 22.821 C 804.786 7.737, 794.798 -4.630, 780.252 1.972 M -0 299.017 L -0 395.033 26.250 394.767 L 52.500 394.500 53 370.500 L 53.500 346.500 83.679 346 C 127.886 345.268, 123.422 352.987, 123.771 276.677 L 124.042 217.500 121.771 213.059 C 119.100 207.835, 115.829 205.211, 110.423 203.957 C 108.265 203.457, 82.538 203.037, 53.250 203.024 L 0 203 -0 299.017 M 142 293.114 C 142 383.047, 142.004 383.235, 144.118 386.996 C 145.283 389.069, 147.953 391.729, 150.051 392.909 C 153.833 395.034, 154.324 395.051, 204.684 394.777 C 255.435 394.500, 255.504 394.497, 258.627 392.270 C 265.338 387.482, 265 392.745, 265 293.099 L 265 203 239 203 L 213 203 213 283.453 C 213 341.486, 212.683 364.602, 211.861 366.405 C 209.139 372.380, 201.442 372.921, 197.131 367.440 L 195 364.730 195 283.865 L 195 203 168.500 203 L 142 203 142 293.114 M 297.123 204.002 C 292.526 205.087, 288.933 207.931, 286.266 212.594 L 284.033 216.500 284.016 305.767 L 284 395.033 310.250 394.767 L 336.500 394.500 337 312.903 C 337.399 247.741, 337.763 230.989, 338.808 229.731 C 340.832 227.293, 345.096 226.219, 348.821 227.210 C 355.189 228.905, 355 226.226, 355 314.968 L 355 395 381.500 395 L 408 395 408.032 313.250 C 408.065 226.809, 407.909 229.707, 412.684 227.163 C 416.045 225.373, 418.562 225.761, 421.917 228.584 L 424.988 231.168 425.244 312.834 L 425.500 394.500 451.750 394.767 L 478 395.033 478 305.164 L 478 215.296 475.750 211.990 C 472.758 207.594, 469.189 205.063, 464.423 203.957 C 459.608 202.841, 301.863 202.883, 297.123 204.002 M 501.240 207.110 C 498.897 208.270, 495.972 210.632, 494.740 212.359 L 492.500 215.500 492.234 305.750 L 491.969 396 518.484 396 L 545 396 545 372 L 545 348 554 348 L 563 348 563 372 L 563 396 589.500 396 L 616 396 616 307.968 C 616 213.859, 616.113 216.165, 611.212 210.645 C 606.316 205.131, 605.435 205.046, 553.500 205.023 C 506.668 205.002, 505.396 205.053, 501.240 207.110 M 53.458 227.250 C 53.195 227.938, 53.096 249.650, 53.239 275.500 L 53.500 322.500 59.276 322.801 C 64.544 323.075, 65.314 322.839, 68.026 320.128 L 71 317.154 71 274.500 L 71 231.846 68.077 228.923 C 65.541 226.387, 64.411 226, 59.546 226 C 55.981 226, 53.763 226.456, 53.458 227.250 M 549.856 229.476 C 548.402 230.288, 546.714 232.381, 546.106 234.126 C 544.841 237.756, 544.502 323.595, 545.750 324.313 C 546.163 324.551, 550.212 324.519, 554.750 324.244 L 563 323.743 563 278.927 L 563 234.112 560.750 231.555 C 557.964 228.389, 553.372 227.512, 549.856 229.476 M 659.147 342.078 C 642.754 345.291, 633.488 362.769, 640.358 377.521 C 649.559 397.279, 676.223 398.704, 686.413 379.982 C 693.655 366.676, 688.877 350.875, 675.730 344.652 C 669.379 341.646, 664.898 340.951, 659.147 342.078 M 659.340 345.936 C 639.411 350.820, 636.023 377.126, 654.079 386.788 C 660.513 390.231, 670.163 389.653, 676.207 385.464 C 681.188 382.011, 686 373.521, 686 368.187 C 686 354.027, 672.455 342.722, 659.340 345.936 M 656 368 L 656 379 658.500 379 C 660.796 379, 661 378.633, 661 374.500 C 661 371.473, 661.426 370, 662.301 370 C 663.016 370, 664.585 372.025, 665.788 374.500 C 667.517 378.060, 668.499 379, 670.487 379 C 673.543 379, 673.553 378.857, 670.812 374.095 L 668.624 370.293 670.830 367.489 C 673.180 364.501, 673.001 361.910, 670.227 358.750 C 669.066 357.429, 667.136 357, 662.345 357 L 656 357 656 368 M 661 364 C 661 367.359, 663.216 368.025, 666.471 365.645 C 669.165 363.675, 667.760 361, 664.031 361 C 661.330 361, 661 361.326, 661 364" stroke="none" fill="#FFFFFF" fill-rule="evenodd"/>
+</svg></span></div>
+ <div class="ap-lang"><button type="button" id="ap-b-kk" class="on" onclick="apLang('kk')">ҚАЗ</button><button type="button" id="ap-b-ru" onclick="apLang('ru')">РУС</button></div>
 </header>
 
-<div class="hero">
- <p class="kicker" data-l="kk">Alay.pro × Puma · Алматы</p><p class="kicker" data-l="ru">Alay.pro × Puma · Алматы</p>
- <h1 data-l="kk">Кроссовка<br><span class="or">+ сыйлық</span></h1>
- <h1 data-l="ru">Кроссовки<br><span class="or">+ подарок</span></h1>
- <p class="lead" data-l="kk">Puma дүкенінен жаңа жүгіру кроссовкасын ал да, Alay.pro-да бір апта тегін жаттық.</p>
- <p class="lead" data-l="ru">Купи новые беговые кроссовки в Puma и тренируйся неделю с Alay.pro бесплатно.</p>
- <div class="chips">
-  <span class="chip" data-l="kk">2 топтық жаттығу</span><span class="chip" data-l="ru">2 групповые тренировки</span>
-  <span class="chip">1 Open Run</span>
-  <span class="chip" data-l="kk">жаттығу жоспары</span><span class="chip" data-l="ru">план тренировок</span>
+<div class="ap-hero">
+ <div class="ap-kicker">Alay.pro × Puma · Алматы</div>
+ <div class="ap-h1" data-l="kk">Кроссовка<br><span class="or">+ сыйлық</span></div>
+ <div class="ap-h1" data-l="ru">Кроссовки<br><span class="or">+ подарок</span></div>
+ <div class="ap-lead" data-l="kk">Puma дүкенінен жаңа жүгіру кроссовкасын ал да, Alay.pro-да бір апта тегін жаттық.</div>
+ <div class="ap-lead" data-l="ru">Купи новые беговые кроссовки в Puma и тренируйся неделю с Alay.pro бесплатно.</div>
+ <div class="ap-chips">
+  <span class="ap-chip" data-l="kk">2 топтық жаттығу</span><span class="ap-chip" data-l="ru">2 групповые тренировки</span>
+  <span class="ap-chip">1 Open Run</span>
+  <span class="ap-chip" data-l="kk">жаттығу жоспары</span><span class="ap-chip" data-l="ru">план тренировок</span>
  </div>
- <a class="btn" href="#form" data-l="kk">Купонды белсендіру</a><a class="btn" href="#form" data-l="ru">Активировать купон</a>
+ <a class="ap-btn" href="#ap-form" data-l="kk">Купонды белсендіру</a><a class="ap-btn" href="#ap-form" data-l="ru">Активировать купон</a>
 </div>
 </div>
 
-<section><div class="wrap">
- <h2 data-l="kk">Сыйлыққа не кіреді</h2><h2 data-l="ru">Что входит в подарок</h2>
- <div class="grid">
-  <div class="card"><div class="num">2</div><h3 data-l="kk">Топтық жаттығу</h3><h3 data-l="ru">Групповые тренировки</h3><p data-l="kk">Жаттықтырушымен, деңгейіңе қарай</p><p data-l="ru">С тренером, под твой уровень</p></div>
-  <div class="card"><div class="num">1</div><h3>Open Run</h3><p data-l="kk">Alay.pro қауымдастығымен бірге жүгіру</p><p data-l="ru">Пробежка вместе с сообществом Alay.pro</p></div>
-  <div class="card"><div class="num">+</div><h3 data-l="kk">Жаттығу жоспары</h3><h3 data-l="ru">План тренировок</h3><p data-l="kk">Бірінші жаттығуда береміз</p><p data-l="ru">Выдаём на первой тренировке</p></div>
-  <div class="card"><div class="num">7</div><h3 data-l="kk">Күн</h3><h3 data-l="ru">Дней</h3><p data-l="kk">Бірінші келген күннен бастап</p><p data-l="ru">С первого визита</p></div>
+<div class="ap-sec"><div class="ap-wrap">
+ <div class="ap-h2" data-l="kk">Сыйлыққа не кіреді</div><div class="ap-h2" data-l="ru">Что входит в подарок</div>
+ <div class="ap-grid">
+  <div class="ap-card"><div class="num">2</div><div class="t" data-l="kk">Топтық жаттығу</div><div class="t" data-l="ru">Групповые тренировки</div><div class="s" data-l="kk">Жаттықтырушымен, деңгейіңе қарай</div><div class="s" data-l="ru">С тренером, под твой уровень</div></div>
+  <div class="ap-card"><div class="num">1</div><div class="t">Open Run</div><div class="s" data-l="kk">Alay.pro қауымдастығымен бірге жүгіру</div><div class="s" data-l="ru">Пробежка вместе с сообществом Alay.pro</div></div>
+  <div class="ap-card"><div class="num">+</div><div class="t" data-l="kk">Жаттығу жоспары</div><div class="t" data-l="ru">План тренировок</div><div class="s" data-l="kk">Бірінші жаттығуда береміз</div><div class="s" data-l="ru">Выдаём на первой тренировке</div></div>
+  <div class="ap-card"><div class="num">7</div><div class="t" data-l="kk">Күн</div><div class="t" data-l="ru">Дней</div><div class="s" data-l="kk">Бірінші келген күннен бастап</div><div class="s" data-l="ru">С первого визита</div></div>
  </div>
-</div></section>
+</div></div>
 
-<section><div class="wrap">
- <h2 data-l="kk">Сынақ аптасынан кейін</h2><h2 data-l="ru">После пробной недели</h2>
- <div class="tiers">
-  <div class="tier base"><div class="pct">−15%</div><p data-l="kk"><b>Бірінші айға</b> абонементке — Puma-ның кез келген жүгіру кроссовкасы</p><p data-l="ru"><b>На первый месяц</b> абонемента — любые беговые кроссовки Puma</p></div>
-  <div class="tier prem"><div class="pct">−20%</div><p data-l="kk"><b>★ Premium:</b> Fast-R NITRO Elite, Deviate NITRO Elite, MagMax NITRO, Velocity NITRO 4 GTX</p><p data-l="ru"><b>★ Premium:</b> Fast-R NITRO Elite, Deviate NITRO Elite, MagMax NITRO, Velocity NITRO 4 GTX</p></div>
+<div class="ap-sec"><div class="ap-wrap">
+ <div class="ap-h2" data-l="kk">Сынақ аптасынан кейін</div><div class="ap-h2" data-l="ru">После пробной недели</div>
+ <div class="ap-tiers">
+  <div class="ap-tier base"><div class="pct">−15%</div><div class="s" data-l="kk"><b>Бірінші айға</b> абонементке — Puma-ның кез келген жүгіру кроссовкасы</div><div class="s" data-l="ru"><b>На первый месяц</b> абонемента — любые беговые кроссовки Puma</div></div>
+  <div class="ap-tier prem"><div class="pct">−20%</div><div class="s"><b>★ Premium:</b> Fast-R NITRO Elite, Deviate NITRO Elite, MagMax NITRO, Velocity NITRO 4 GTX</div></div>
  </div>
- <p class="note" data-l="kk">Жеңілдік абонемент сынақ аптасы ішінде сатып алынса әрекет етеді.</p>
- <p class="note" data-l="ru">Скидка действует, если абонемент куплен в течение пробной недели.</p>
-</div></section>
+ <div class="ap-note" data-l="kk">Жеңілдік абонемент сынақ аптасы ішінде сатып алынса әрекет етеді.</div>
+ <div class="ap-note" data-l="ru">Скидка действует, если абонемент куплен в течение пробной недели.</div>
+</div></div>
 
-<section><div class="wrap">
- <h2 data-l="kk">Қалай алуға болады</h2><h2 data-l="ru">Как получить</h2>
- <div class="steps">
-  <div class="step"><b>1</b><h3 data-l="kk">Кроссовка ал</h3><h3 data-l="ru">Купи кроссовки</h3><p data-l="kk">Алматыдағы Puma дүкендерінің бірінен</p><p data-l="ru">В одном из магазинов Puma в Алматы</p></div>
-  <div class="step"><b>2</b><h3 data-l="kk">Қораптағы купон</h3><h3 data-l="ru">Купон в коробке</h3><p data-l="kk">QR-кодты сканерле немесе төмендегі форманы толтыр</p><p data-l="ru">Отсканируй QR или заполни форму ниже</p></div>
-  <div class="step"><b>3</b><h3 data-l="kk">Біз хабарласамыз</h3><h3 data-l="ru">Мы свяжемся</h3><p data-l="kk">Бірінші жаттығуға жазамыз</p><p data-l="ru">И запишем на первую тренировку</p></div>
-  <div class="step"><b>4</b><h3 data-l="kk">Чекті көрсет</h3><h3 data-l="ru">Покажи чек</h3><p data-l="kk">Бірінші жаттығуда чек немесе қорап</p><p data-l="ru">Чек или коробку на первой тренировке</p></div>
+<div class="ap-sec"><div class="ap-wrap">
+ <div class="ap-h2" data-l="kk">Қалай алуға болады</div><div class="ap-h2" data-l="ru">Как получить</div>
+ <div class="ap-steps">
+  <div class="ap-step"><b>1</b><div class="t" data-l="kk">Кроссовка ал</div><div class="t" data-l="ru">Купи кроссовки</div><div class="s" data-l="kk">Алматыдағы Puma дүкендерінің бірінен</div><div class="s" data-l="ru">В одном из магазинов Puma в Алматы</div></div>
+  <div class="ap-step"><b>2</b><div class="t" data-l="kk">Қораптағы купон</div><div class="t" data-l="ru">Купон в коробке</div><div class="s" data-l="kk">QR-кодты сканерле немесе төмендегі форманы толтыр</div><div class="s" data-l="ru">Отсканируй QR или заполни форму ниже</div></div>
+  <div class="ap-step"><b>3</b><div class="t" data-l="kk">Біз хабарласамыз</div><div class="t" data-l="ru">Мы свяжемся</div><div class="s" data-l="kk">Бірінші жаттығуға жазамыз</div><div class="s" data-l="ru">И запишем на первую тренировку</div></div>
+  <div class="ap-step"><b>4</b><div class="t" data-l="kk">Чекті көрсет</div><div class="t" data-l="ru">Покажи чек</div><div class="s" data-l="kk">Бірінші жаттығуда чек немесе қорап</div><div class="s" data-l="ru">Чек или коробку на первой тренировке</div></div>
  </div>
- <p class="note" data-l="kk">Купонды сатып алғаннан кейін 30 күн ішінде белсендір. Бір код — бір рет, бір телефон нөміріне бір сертификат.</p>
- <p class="note" data-l="ru">Активируй купон в течение 30 дней с покупки. Один код — один раз, один сертификат на один номер телефона.</p>
-</div></section>
+ <div class="ap-stores"><span>Mall Aport East</span><span>Dostyk Plaza</span><span>Forum</span><span>MEGA Alma-Ata</span><span>Mall Aport West</span></div>
+</div></div>
 
-<section><div class="wrap">
- <h2 data-l="kk">Puma дүкендері</h2><h2 data-l="ru">Магазины Puma</h2>
- <div class="stores"><span>Mall Aport East</span><span>Dostyk Plaza</span><span>Forum</span><span>MEGA Alma-Ata</span><span>Mall Aport West</span></div>
-</div></section>
+<div class="ap-sec" id="ap-form"><div class="ap-wrap">
+ <div class="ap-h2" data-l="kk">Купонды белсендіру</div><div class="ap-h2" data-l="ru">Активировать купон</div>
+ <form class="ap-f" id="ap-f" novalidate>
+  <label class="full"><span data-l="kk">Сертификат коды *</span><span data-l="ru">Код сертификата *</span>
+   <input name="code" id="ap-code" required placeholder="ALY-XXXXX" autocomplete="off"></label>
+  <label><span data-l="kk">Аты-жөні *</span><span data-l="ru">Имя и фамилия *</span><input name="name" required autocomplete="name"></label>
+  <label><span data-l="kk">Телефон / WhatsApp *</span><span data-l="ru">Телефон / WhatsApp *</span>
+   <span class="ap-phone"><select name="cc">
+    <option value="+7">🇰🇿 +7</option><option value="+7 RU">🇷🇺 +7</option><option value="+996">🇰🇬 +996</option><option value="+998">🇺🇿 +998</option><option value="+992">🇹🇯 +992</option><option value="+993">🇹🇲 +993</option><option value="+994">🇦🇿 +994</option><option value="+374">🇦🇲 +374</option><option value="+995">🇬🇪 +995</option><option value="+375">🇧🇾 +375</option><option value="+380">🇺🇦 +380</option><option value="+86">🇨🇳 +86</option><option value="+90">🇹🇷 +90</option><option value="+82">🇰🇷 +82</option><option value="+49">🇩🇪 +49</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option><option value="+971">🇦🇪 +971</option>
+   </select><input name="phone" required inputmode="tel" placeholder="701 123 45 67" autocomplete="tel-national"></span></label>
+  <label><span>Email</span><input name="email" type="email" autocomplete="email"></label>
+  <label><span>Instagram</span><input name="instagram" placeholder="@"></label>
+  <label><span data-l="kk">Puma дүкені *</span><span data-l="ru">Магазин Puma *</span><select name="store" required>
+   <option value="" data-kk="Таңдаңыз" data-ru="Выберите">Таңдаңыз</option><option>Mall Aport East</option><option>Dostyk Plaza</option><option>Forum</option><option>MEGA Alma-Ata</option><option>Mall Aport West</option></select></label>
+  <label><span data-l="kk">Кроссовка моделі *</span><span data-l="ru">Модель кроссовок *</span><select name="model" id="ap-model" required>
+   <option value="" data-kk="Таңдаңыз" data-ru="Выберите">Таңдаңыз</option>
+   <optgroup label="★ Premium −20%"><option>Fast-R NITRO Elite 3 ★</option><option>Fast-R NITRO Elite 2 ★</option><option>Fast-RB NITRO Elite 2 ★</option><option>Deviate NITRO Elite 4 ★</option><option>Deviate NITRO Elite 3 ★</option><option>Deviate NITRO Elite Trail ★</option><option>MagMax NITRO 2 ★</option><option>MagMax NITRO ★</option><option>Velocity NITRO 4 GTX ★</option></optgroup>
+   <optgroup label="Base −15%"><option>Deviate NITRO 4</option><option>Deviate NITRO 3</option><option>Deviate Pure NITRO</option><option>Velocity NITRO 4</option><option>Velocity NITRO 3</option><option>ForeverRun NITRO 2</option><option>ForeverRun NITRO</option><option>Electrify NITRO 4</option><option>Electrify NITRO 3</option></optgroup>
+   <option value="other" data-kk="Басқа модель" data-ru="Другая модель">Басқа модель</option></select></label>
+  <label class="full" id="ap-other" hidden><span data-l="kk">Модельді жазыңыз</span><span data-l="ru">Укажите модель</span><input name="model_other"></label>
+  <label><span data-l="kk">Жүгіру тәжірибеңіз *</span><span data-l="ru">Ваш беговой опыт *</span><select name="level" required>
+   <option value="" data-kk="Таңдаңыз" data-ru="Выберите">Таңдаңыз</option>
+   <option value="Новичок" data-kk="Жаңадан бастаймын" data-ru="Только начинаю">Жаңадан бастаймын</option>
+   <option value="До 1 года" data-kk="1 жылға дейін" data-ru="До 1 года">1 жылға дейін</option>
+   <option value="1–3 года" data-kk="1–3 жыл" data-ru="1–3 года">1–3 жыл</option>
+   <option value="Больше 3 лет" data-kk="3 жылдан көп" data-ru="Больше 3 лет">3 жылдан көп</option></select></label>
+  <label><span data-l="kk">Мақсатыңыз *</span><span data-l="ru">Ваша цель *</span><select name="goal" required>
+   <option value="" data-kk="Таңдаңыз" data-ru="Выберите">Таңдаңыз</option>
+   <option value="Начать бегать" data-kk="Жүгіруді бастау" data-ru="Начать бегать">Жүгіруді бастау</option>
+   <option value="5–10 км" data-kk="5–10 км" data-ru="5–10 км">5–10 км</option>
+   <option value="Полумарафон" data-kk="Жартылай марафон" data-ru="Полумарафон">Жартылай марафон</option>
+   <option value="Марафон" data-kk="Марафон" data-ru="Марафон">Марафон</option>
+   <option value="Здоровье и форма" data-kk="Денсаулық пен пішін" data-ru="Здоровье и форма">Денсаулық пен пішін</option>
+   <option value="Скорость" data-kk="Жылдамдық" data-ru="Скорость">Жылдамдық</option></select></label>
+  <label><span data-l="kk">Ыңғайлы уақыт</span><span data-l="ru">Удобное время</span><select name="time">
+   <option value="" data-kk="Таңдаңыз" data-ru="Выберите">Таңдаңыз</option>
+   <option value="Утро" data-kk="Таңертең" data-ru="Утро">Таңертең</option>
+   <option value="Вечер" data-kk="Кешке" data-ru="Вечер">Кешке</option>
+   <option value="Выходные" data-kk="Демалыс күндері" data-ru="Выходные">Демалыс күндері</option></select></label>
+  <label class="full"><span data-l="kk">Чек пен кроссовка / қорап фотосы (3-ке дейін)</span><span data-l="ru">Фото чека и кроссовок / коробки (до 3)</span>
+   <input type="file" name="photos" id="ap-photos" accept="image/*" multiple></label>
+  <label class="full ap-check"><input type="checkbox" name="consent" required><span data-l="kk">Деректерімді Alay.pro-ға байланысу үшін беруге келісемін</span><span data-l="ru">Согласен передать данные Alay.pro для связи со мной</span></label>
+  <div class="full"><button class="ap-btn" type="submit" id="ap-send"><span data-l="kk">Белсендіру</span><span data-l="ru">Активировать</span></button></div>
+  <div class="full ap-msg" id="ap-msg"></div>
+ </form>
+</div></div>
 
-<section id="form"><div class="wrap">
- <h2 data-l="kk">Купонды белсендіру</h2><h2 data-l="ru">Активировать купон</h2>
- <div class="form"><iframe id="jf" title="Alay.pro × Puma" allow="camera" loading="lazy"></iframe></div>
-</div></section>
-
-<footer><div class="wrap">
- <a href="https://www.instagram.com/alay.pro/">Instagram @alay.pro</a> · <a href="https://alaypro.kz">alaypro.kz</a>
-</div></footer>
-
+<div class="ap-foot"><div class="ap-wrap"><a href="https://www.instagram.com/alay.pro/">Instagram @alay.pro</a> · <a href="https://alaypro.kz">alaypro.kz</a></div></div>
 </div>
+
 <script>
-var FORM='https://form.jotform.com/263141483272050';
-function formUrl(lang){
-  var q=new URLSearchParams(location.search), p=new URLSearchParams();
-  p.set('language', lang==='ru'?'ru':'kk');
-  var code=q.get('code')||q.get('q5_textbox3'); if(code) p.set('q5_textbox3',code);
-  p.set('utm_source', q.get('utm_source')||'alaypro_site');
-  p.set('utm_campaign', q.get('utm_campaign')||'alay_puma_2026');
-  return FORM+'?'+p.toString();
-}
-function setLang(l){
-  document.getElementById('ap').classList.toggle('ru', l==='ru');
-  
-  document.getElementById('b-kk').classList.toggle('on', l!=='ru');
-  document.getElementById('b-ru').classList.toggle('on', l==='ru');
-  document.getElementById('jf').src = formUrl(l);
-}
-var start=new URLSearchParams(location.search).get('lang');
-setLang(start==='ru'?'ru':'kk');
+(function(){
+// Адрес веб-приложения Google Apps Script (Развернуть → Веб-приложение → URL, заканчивается на /exec)
+var API='{{API}}';
+var root=document.getElementById('ap'), f=document.getElementById('ap-f'), msg=document.getElementById('ap-msg'), btn=document.getElementById('ap-send');
+var L='kk';
+var T={
+ kk:{need:'Белгіленген өрістерді толтырыңыз',send:'Жіберілуде…',ok:'Дайын! Купон белсендірілді. Alay.pro командасы жақын арада хабарласады.',code:'Мұндай код табылмады. Купондағы кодты тексеріңіз.',used:'Бұл код бұрын белсендірілген.',phone:'Бұл нөмірге сертификат бұрын берілген.',server:'Қате шықты. Кейінірек қайталап көріңіз немесе @alay.pro-ға жазыңыз.',noapi:'Форма әлі қосылмаған.'},
+ ru:{need:'Заполните отмеченные поля',send:'Отправляем…',ok:'Готово! Купон активирован. Команда Alay.pro скоро свяжется с вами.',code:'Такой код не найден. Проверьте код на купоне.',used:'Этот код уже активирован.',phone:'На этот номер сертификат уже выдан.',server:'Что-то пошло не так. Попробуйте позже или напишите в @alay.pro.',noapi:'Форма ещё не подключена.'}
+};
+window.apLang=function(l){
+ L=l==='ru'?'ru':'kk'; root.classList.toggle('ru',L==='ru');
+ document.getElementById('ap-b-kk').classList.toggle('on',L==='kk');
+ document.getElementById('ap-b-ru').classList.toggle('on',L==='ru');
+ root.querySelectorAll('option[data-kk]').forEach(function(o){o.textContent=o.getAttribute('data-'+L);});
+};
+var q=new URLSearchParams(location.search);
+var c=q.get('code')||q.get('q5_textbox3'); if(c) document.getElementById('ap-code').value=c;
+apLang(q.get('lang')==='ru'?'ru':'kk');
+var model=document.getElementById('ap-model'), other=document.getElementById('ap-other');
+model.addEventListener('change',function(){other.hidden=model.value!=='other';});
+
+function shrink(file){return new Promise(function(res,rej){
+ var r=new FileReader(); r.onerror=rej; r.onload=function(){
+  var img=new Image(); img.onerror=rej; img.onload=function(){
+   var m=1600,s=Math.min(1,m/Math.max(img.width,img.height)),cv=document.createElement('canvas');
+   cv.width=Math.round(img.width*s); cv.height=Math.round(img.height*s);
+   cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+   res({name:file.name.replace(/\.[^.]+$/,'')+'.jpg',data:cv.toDataURL('image/jpeg',0.82).split(',')[1]});
+  }; img.src=r.result;}; r.readAsDataURL(file);});}
+
+function say(t,cls){msg.textContent=t;msg.className='full ap-msg '+(cls||'');}
+
+f.addEventListener('submit',function(e){
+ e.preventDefault();
+ var bad=false;
+ f.querySelectorAll('[required]').forEach(function(el){
+  var ok=el.type==='checkbox'?el.checked:String(el.value).trim()!=='';
+  el.classList.toggle('bad',!ok); if(!ok) bad=true;});
+ if(bad){say(T[L].need,'err');return;}
+ if(!API||API.indexOf('{{')===0){say(T[L].noapi,'err');return;}
+ var d={}; new FormData(f).forEach(function(v,k){if(k!=='photos') d[k]=v;});
+ d.phone=(d.cc||'').replace(' RU','')+' '+String(d.phone).replace(/[^\d]/g,'');
+ d.country=d.cc; delete d.cc;
+ d.lang=L; d.utm_source=q.get('utm_source')||'alaypro_site'; d.utm_campaign=q.get('utm_campaign')||'alay_puma_2026';
+ btn.disabled=true; say(T[L].send);
+ var files=Array.prototype.slice.call(document.getElementById('ap-photos').files,0,3);
+ Promise.all(files.map(shrink)).then(function(ph){
+  d.photos=ph;
+  return fetch(API,{method:'POST',body:JSON.stringify(d)});
+ }).then(function(r){return r.json();}).then(function(r){
+  if(r.ok){say(T[L].ok,'ok'); f.reset(); apLang(L); other.hidden=true;}
+  else say(T[L][r.err]||T[L].server,'err');
+ }).catch(function(){say(T[L].server,'err');}).then(function(){btn.disabled=false;});
+});
+})();
 </script>

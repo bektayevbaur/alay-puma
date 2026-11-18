@@ -1,7 +1,9 @@
 # Alay.pro × Puma — лендинг акции
 
-Страница акции «Кроссовка + сыйлық»: подарок, base −15% / premium −20%, шаги и форма активации (Jotform), KZ/RU.
+Страница alaypro.kz/puma: подарок, base −15% / premium −20%, шаги и своя форма активации (KZ/RU). Заявки уходят в Google Таблицу через Apps Script.
 
-- `index.html` — сайт для GitHub Pages: https://bektayevbaur.github.io/alay-puma/
-- `tilda-block.html` — тот же код для HTML-блока Tilda (страница alaypro.kz/puma)
-- Параметры ссылки: `?lang=ru`, `?code=ALY-XXXXX` (подставит код в форму)
+- `src/` — исходники (page.html, style.css, app.js); `python3 build.py` собирает:
+  - `index.html` — для GitHub Pages
+  - `tilda-block.html` — код для HTML-блока T123 в Tilda
+- `apps-script/Code.gs` — приём заявок: проверка кода, один код — один раз, один телефон — один сертификат, фото в Google Drive
+- Ссылки: `?code=ALY-XXXXX` подставит код, `?lang=ru` — русский
