@@ -14,7 +14,11 @@ window.apLang=function(l){
  root.querySelectorAll('option[data-kk]').forEach(function(o){o.textContent=o.getAttribute('data-'+L);});
 };
 var q=new URLSearchParams(location.search);
-var c=q.get('code')||q.get('q5_textbox3'); if(c) document.getElementById('ap-code').value=c;
+var c=q.get('code')||q.get('q5_textbox3');
+if(c){document.getElementById('ap-code').value=c; root.classList.add('has-code');
+ document.getElementById('ap-codeval').textContent=c; document.getElementById('ap-codeok').hidden=false;}
+var st=document.getElementById('ap-sticky');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){st.classList.toggle('off',e.isIntersecting);});},{threshold:0.05});io.observe(document.getElementById('ap-form'));}
 apLang(q.get('lang')==='ru'?'ru':'kk');
 var model=document.getElementById('ap-model'), other=document.getElementById('ap-other');
 model.addEventListener('change',function(){other.hidden=model.value!=='other';});

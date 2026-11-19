@@ -99,6 +99,44 @@
  #ap .ap-f label{font-size:16px}
  #ap .ap-f input,#ap .ap-f select{height:54px;font-size:17px}
 }
+/* layout: mobile first */
+#ap{display:flex;flex-direction:column}
+#ap>*{order:2}
+#ap>.ap-wrap:first-child{order:0}
+#ap.has-code #ap-form{order:1}
+#ap.has-code .ap-hero{padding-bottom:28px}
+#ap .ap-codeok{display:inline-block;background:var(--ye);color:#111;border-radius:10px;padding:8px 14px;font-weight:600;margin-bottom:16px}
+#ap .ap-codeok span[data-l]{color:#111}
+#ap .ap-hero-card{display:none}
+#ap .ap-fside{display:none}
+#ap .ap-sticky{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;display:block;text-align:center;background:var(--or);color:#111;font:700 17px Oswald,Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;padding:15px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:opacity .2s,transform .2s}
+#ap .ap-sticky.off{opacity:0;transform:translateY(120%);pointer-events:none}
+#ap .ap-foot{padding-bottom:96px}
+#ap .ap-f input,#ap .ap-f select{font-size:16px}
+@media (max-width:759px){
+ #ap .ap-hero .ap-btn{display:none}
+ #ap .ap-steps .ap-step,#ap .ap-grid .ap-card{padding:16px}
+}
+@media (min-width:760px){
+ #ap .ap-sticky{display:none}
+ #ap .ap-foot{padding-bottom:40px}
+}
+@media (min-width:1000px){
+ #ap .ap-hero{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+ #ap .ap-hero-card{display:block;background:var(--bg2);border-radius:24px;padding:32px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+ #ap .hc-t{font:600 15px Oswald,Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+ #ap .hc-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font:500 22px Oswald,Arial,sans-serif}
+ #ap .hc-row b{width:40px;height:40px;border-radius:10px;background:var(--or);color:#111;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+ #ap .hc-disc{display:flex;gap:12px;margin:22px 0 10px}
+ #ap .hc-disc .d{flex:1;text-align:center;border-radius:14px;padding:14px 8px;font:700 40px Oswald,Arial,sans-serif}
+ #ap .hc-disc .base{border:3px solid var(--or);color:var(--or)}
+ #ap .hc-disc .prem{background:var(--gold);color:#121212}
+ #ap .hc-s{color:var(--mut);font-size:14px}
+ #ap .ap-fwrap{display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start}
+ #ap .ap-fside{display:flex;flex-direction:column;gap:14px;position:sticky;top:24px}
+ #ap .fs-i{background:var(--bg2);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;font-size:15px}
+ #ap .fs-i b{font:700 32px Oswald,Arial,sans-serif;color:var(--or);min-width:44px;text-align:center}
+}
 </style>
 <div id="ap">
 <div class="ap-wrap">
@@ -143,7 +181,8 @@
  <div class="ap-lang"><button type="button" id="ap-b-kk" class="on" onclick="apLang('kk')">ҚАЗ</button><button type="button" id="ap-b-ru" onclick="apLang('ru')">РУС</button></div>
 </header>
 
-<div class="ap-hero">
+<div class="ap-hero"><div class="ap-hero-main">
+ <div class="ap-codeok" id="ap-codeok" hidden><span data-l="kk">Купон коды</span><span data-l="ru">Код купона</span> <b id="ap-codeval"></b> ✓</div>
  <div class="ap-kicker">Alay.pro × Puma · Алматы</div>
  <div class="ap-h1" data-l="kk">Кроссовка<br><span class="or">+ сыйлық</span></div>
  <div class="ap-h1" data-l="ru">Кроссовки<br><span class="or">+ подарок</span></div>
@@ -155,6 +194,15 @@
   <span class="ap-chip" data-l="kk">жаттығу жоспары</span><span class="ap-chip" data-l="ru">план тренировок</span>
  </div>
  <a class="ap-btn" href="#ap-form" data-l="kk">Купонды белсендіру</a><a class="ap-btn" href="#ap-form" data-l="ru">Активировать купон</a>
+</div>
+ <div class="ap-hero-card">
+  <div class="hc-t" data-l="kk">Сыйлық · 7 күн</div><div class="hc-t" data-l="ru">Подарок · 7 дней</div>
+  <div class="hc-row"><b>2</b><span data-l="kk">топтық жаттығу</span><span data-l="ru">групповые тренировки</span></div>
+  <div class="hc-row"><b>1</b><span>Open Run</span></div>
+  <div class="hc-row"><b>+</b><span data-l="kk">жаттығу жоспары</span><span data-l="ru">план тренировок</span></div>
+  <div class="hc-disc"><div class="d base">−15%</div><div class="d prem">★ −20%</div></div>
+  <div class="hc-s" data-l="kk">Абонементтің бірінші айына, сынақ аптасынан кейін</div><div class="hc-s" data-l="ru">На первый месяц абонемента после пробной недели</div>
+ </div>
 </div>
 </div>
 
@@ -191,6 +239,12 @@
 
 <div class="ap-sec" id="ap-form"><div class="ap-wrap">
  <div class="ap-h2" data-l="kk">Купонды белсендіру</div><div class="ap-h2" data-l="ru">Активировать купон</div>
+ <div class="ap-fwrap">
+ <div class="ap-fside">
+  <div class="fs-i"><b>30</b><span data-l="kk">күн ішінде белсендір</span><span data-l="ru">дней на активацию</span></div>
+  <div class="fs-i"><b>1</b><span data-l="kk">код — бір рет, бір нөмірге бір сертификат</span><span data-l="ru">код — один раз, один сертификат на номер</span></div>
+  <div class="fs-i"><b>✓</b><span data-l="kk">бірінші жаттығуға чек немесе қорап әкел</span><span data-l="ru">чек или коробку — на первую тренировку</span></div>
+ </div>
  <form class="ap-f" id="ap-f" novalidate>
   <label class="full"><span data-l="kk">Сертификат коды *</span><span data-l="ru">Код сертификата *</span>
    <input name="code" id="ap-code" required placeholder="ALY-XXXXX" autocomplete="off"></label>
@@ -234,8 +288,10 @@
   <div class="full"><button class="ap-btn" type="submit" id="ap-send"><span data-l="kk">Белсендіру</span><span data-l="ru">Активировать</span></button></div>
   <div class="full ap-msg" id="ap-msg"></div>
  </form>
+ </div>
 </div></div>
 
+<a class="ap-sticky" id="ap-sticky" href="#ap-form"><span data-l="kk">Купонды белсендіру</span><span data-l="ru">Активировать купон</span></a>
 <div class="ap-foot"><div class="ap-wrap"><a href="https://www.instagram.com/alay.pro/">Instagram @alay.pro</a> · <a href="https://alaypro.kz">alaypro.kz</a></div></div>
 </div>
 
@@ -256,7 +312,11 @@ window.apLang=function(l){
  root.querySelectorAll('option[data-kk]').forEach(function(o){o.textContent=o.getAttribute('data-'+L);});
 };
 var q=new URLSearchParams(location.search);
-var c=q.get('code')||q.get('q5_textbox3'); if(c) document.getElementById('ap-code').value=c;
+var c=q.get('code')||q.get('q5_textbox3');
+if(c){document.getElementById('ap-code').value=c; root.classList.add('has-code');
+ document.getElementById('ap-codeval').textContent=c; document.getElementById('ap-codeok').hidden=false;}
+var st=document.getElementById('ap-sticky');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){st.classList.toggle('off',e.isIntersecting);});},{threshold:0.05});io.observe(document.getElementById('ap-form'));}
 apLang(q.get('lang')==='ru'?'ru':'kk');
 var model=document.getElementById('ap-model'), other=document.getElementById('ap-other');
 model.addEventListener('change',function(){other.hidden=model.value!=='other';});

@@ -5,7 +5,8 @@
  <div class="ap-lang"><button type="button" id="ap-b-kk" class="on" onclick="apLang('kk')">ҚАЗ</button><button type="button" id="ap-b-ru" onclick="apLang('ru')">РУС</button></div>
 </header>
 
-<div class="ap-hero">
+<div class="ap-hero"><div class="ap-hero-main">
+ <div class="ap-codeok" id="ap-codeok" hidden><span data-l="kk">Купон коды</span><span data-l="ru">Код купона</span> <b id="ap-codeval"></b> ✓</div>
  <div class="ap-kicker">Alay.pro × Puma · Алматы</div>
  <div class="ap-h1" data-l="kk">Кроссовка<br><span class="or">+ сыйлық</span></div>
  <div class="ap-h1" data-l="ru">Кроссовки<br><span class="or">+ подарок</span></div>
@@ -17,6 +18,15 @@
   <span class="ap-chip" data-l="kk">жаттығу жоспары</span><span class="ap-chip" data-l="ru">план тренировок</span>
  </div>
  <a class="ap-btn" href="#ap-form" data-l="kk">Купонды белсендіру</a><a class="ap-btn" href="#ap-form" data-l="ru">Активировать купон</a>
+</div>
+ <div class="ap-hero-card">
+  <div class="hc-t" data-l="kk">Сыйлық · 7 күн</div><div class="hc-t" data-l="ru">Подарок · 7 дней</div>
+  <div class="hc-row"><b>2</b><span data-l="kk">топтық жаттығу</span><span data-l="ru">групповые тренировки</span></div>
+  <div class="hc-row"><b>1</b><span>Open Run</span></div>
+  <div class="hc-row"><b>+</b><span data-l="kk">жаттығу жоспары</span><span data-l="ru">план тренировок</span></div>
+  <div class="hc-disc"><div class="d base">−15%</div><div class="d prem">★ −20%</div></div>
+  <div class="hc-s" data-l="kk">Абонементтің бірінші айына, сынақ аптасынан кейін</div><div class="hc-s" data-l="ru">На первый месяц абонемента после пробной недели</div>
+ </div>
 </div>
 </div>
 
@@ -53,6 +63,12 @@
 
 <div class="ap-sec" id="ap-form"><div class="ap-wrap">
  <div class="ap-h2" data-l="kk">Купонды белсендіру</div><div class="ap-h2" data-l="ru">Активировать купон</div>
+ <div class="ap-fwrap">
+ <div class="ap-fside">
+  <div class="fs-i"><b>30</b><span data-l="kk">күн ішінде белсендір</span><span data-l="ru">дней на активацию</span></div>
+  <div class="fs-i"><b>1</b><span data-l="kk">код — бір рет, бір нөмірге бір сертификат</span><span data-l="ru">код — один раз, один сертификат на номер</span></div>
+  <div class="fs-i"><b>✓</b><span data-l="kk">бірінші жаттығуға чек немесе қорап әкел</span><span data-l="ru">чек или коробку — на первую тренировку</span></div>
+ </div>
  <form class="ap-f" id="ap-f" novalidate>
   <label class="full"><span data-l="kk">Сертификат коды *</span><span data-l="ru">Код сертификата *</span>
    <input name="code" id="ap-code" required placeholder="ALY-XXXXX" autocomplete="off"></label>
@@ -96,7 +112,9 @@
   <div class="full"><button class="ap-btn" type="submit" id="ap-send"><span data-l="kk">Белсендіру</span><span data-l="ru">Активировать</span></button></div>
   <div class="full ap-msg" id="ap-msg"></div>
  </form>
+ </div>
 </div></div>
 
+<a class="ap-sticky" id="ap-sticky" href="#ap-form"><span data-l="kk">Купонды белсендіру</span><span data-l="ru">Активировать купон</span></a>
 <div class="ap-foot"><div class="ap-wrap"><a href="https://www.instagram.com/alay.pro/">Instagram @alay.pro</a> · <a href="https://alaypro.kz">alaypro.kz</a></div></div>
 </div>
