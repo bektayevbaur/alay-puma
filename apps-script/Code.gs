@@ -1,13 +1,13 @@
 /**
  * Alay.pro × Puma — приём заявок с alaypro.kz/puma в Google Таблицу.
  *
- * 1. ID таблицы «Alay × Puma — заявки» уже вставлен ниже.
+ * 1. ID таблицы «Alay x Puma» уже вставлен ниже.
  * 2. Выполните функцию setup() один раз: создаст листы «Заявки» и «Коды».
  * 3. Коды купонов уже в листе «Коды».
  * 4. Развернуть → Новое развертывание → Веб-приложение:
  *    «Запуск от имени» — Я, «Доступ» — Все. Скопируйте URL (…/exec).
  */
-const SHEET_ID = '1NtCDnB_787A33o_osJJd4o5ZDixLwSXD5JCa4LVSe9I';
+const SHEET_ID = '1VUp48-_JlLTFgEIHyvYrJ3313gnCyQhUz_ijouZqi3E';
 const FOLDER_NAME = 'Alay × Puma — фото чеков';
 const REQ = 'Заявки';
 const CODES = 'Коды';
