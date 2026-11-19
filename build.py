@@ -13,7 +13,8 @@ css = open('src/style.css').read()
 js = open('src/app.js').read().replace('{{API}}', API)
 fonts = '<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">'
 block = f'{fonts}\n<style>\n{css}</style>\n{page}\n<script>\n{js}</script>\n'
-open('tilda-block.html', 'w').write(block)
+site_css = open('src/tilda-site.css').read()
+open('tilda-block.html', 'w').write(f'<style>\n{site_css}</style>\n' + block)
 open('index.html', 'w').write(f'''<!DOCTYPE html>
 <html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alay.pro × Puma — Кроссовка + сыйлық</title>
