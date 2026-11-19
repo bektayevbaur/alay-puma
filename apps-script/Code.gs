@@ -59,7 +59,7 @@ function doPost(e) {
     });
 
     const model = d.model === 'other' ? (d.model_other || 'Другая') : (d.model || '');
-    req.appendRow([new Date(), code, d.name, "'" + phone, d.country || '', d.email || '', d.instagram || '', d.store || '',
+    req.appendRow([new Date(), code, d.name, "'" + phone, "'" + (d.country || ''), d.email || '', d.instagram || '', d.store || '',
       model, /★/.test(model) ? 'да' : '', d.level || '', d.goal || '', d.time || '', links.join('\n'),
       d.lang || '', d.utm_source || '', d.utm_campaign || '', isTest ? 'тест' : 'новая', '']);
     if (!isTest) codes.getRange(row + 2, 2, 1, 3).setValues([[new Date(), "'" + phone, d.name]]);
